@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VR全景</title>
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"/> -->
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div id="nav"><img src="images/logo.png" id="logoImg"></div>
+    <iframe frameborder="0" src="" width="100%" scrolling="yes"  id="vrIframe"></iframe>
+    <!--#include virtual ="bottom.html"-->
+  </body>
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script>
+  var pmHeight=$(window).height();
+  $("#vrIframe").height(pmHeight-74);
+  $(function(){
+    //获取url中的参数
+    function GetArgs(params,paramName){
+        var argsIndex = params.indexOf("?");
+      //  console.log(argsIndex);
+        var arg = params.substring(argsIndex+1);
+        //console.log(arg);
+        args = arg.split("&");
+        //console.log(args);
+        var valArg = "";
+        for(var i =0;i<args.length;i++){
+            str = args[i];
+            var arg = str.split("=");
+            //console.log(">>>>>>",arg);
+            if(arg.length<=1) continue;
+            if(arg[0] == paramName){
+                valArg = arg[1];
+                //console.log("<<<<<<<",valArg)
+            }
+            //console.log(valArg)
+        }
+        return valArg;
+    }
+    var id = GetArgs(window.location.href,'id');
+    //console.log(id);
+    $("#vrIframe").attr("src","http://www.expoon.com/"+id+"");
+  })
+  </script>
+  <script src="js/nav.js"></script>
+</html>

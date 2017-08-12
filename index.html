@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>更多VR</title>
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"/> -->
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div id="nav"><img src="images/logo.png" id="logoImg"></div>
+    <div><img src="images/vrImg.jpg" id="vrTittle"></div>
+    <div id="main">
+      <div title="22595" class="vr"><a><img src="images/22595.jpg" class="vrImg"><div class="vrP">宿迁VR全景</div></a></div>
+      <div title="26065" class="vr"><a><img src="images/26065.jpg" class="vrImg"><div class="vrP">秀强秀珍道德讲堂</div></a></div>
+      <div title="24334" class="vr"><a><img src="images/24334.jpg" class="vrImg"><div class="vrP">蔡集镇体育公园</div></a></div>
+      <div title="24028" class="vr"><a><img src="images/24028.jpg" class="vrImg"><div class="vrP">宿迁良宇奥迪</div></a></div>
+      <div title="24405" class="vr"><a><img src="images/24405.jpg" class="vrImg"><div class="vrP">江苏华旅网络科技</div></a></div>
+      <div title="25118" class="vr"><a><img src="images/25118.jpg" class="vrImg"><div class="vrP">华之印刷有限公司</div></a></div>
+      <div title="24054" class="vr"><a><img src="images/24054.jpg" class="vrImg"><div class="vrP">宿迁人才网招聘</div></a></div>
+      <div title="23676" class="vr"><a><img src="images/23676.jpg" class="vrImg"><div class="vrP">张智、王婷婚礼</div></a></div>
+    </div>
+    <!--#include virtual ="bottom.html"-->
+  </body>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+    $(function(){
+      for(var i=0;i<8;i++){
+        !function(i){
+          $(".vr:eq("+i+")").on('click',function(){
+            var id=$(this).attr("title");
+            window.location.href='vr.html?id='+id+'';
+          })
+        }(i);
+      }
+      var pmHeight=$(window).height();
+      var imgHeight=$("#vrTittle").height();
+      $("#main").css("height",pmHeight-imgHeight-74+"px");
+    });
+    </script>
+    <script src="js/nav.js"></script>
+</html>
